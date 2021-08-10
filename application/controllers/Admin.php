@@ -31,10 +31,10 @@ class Admin extends CI_Controller
 
     public function akun()
     {
-        $data['title'] = "Akun";
+        $data['title'] = "Akun Admin";
         $data['bab'] = "Akun";
-        $data['sub'] = "Tabel Data Akun";
-        $data['akun'] = $this->M_akun->get_data_akun();
+        $data['sub'] = "Tabel Data Akun Admin";
+        $data['akun'] = $this->M_akun->get_data_akun_admin();
 
         $this->form_validation->set_rules('email', 'Email', 'required');
         //$this->form_validation->set_rules('password', 'Password', 'required');
@@ -55,8 +55,38 @@ class Admin extends CI_Controller
             redirect('admin/akun');
         }
     }
+    public function akun_user()
+    {
+        $data['title'] = "Akun User";
+        $data['bab'] = "Akun";
+        $data['sub'] = "Tabel Data Akun User";
+        $data['akun'] = $this->M_akun->get_data_akun_user();
+
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        //$this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('role_id', 'Role', 'required');
+        $this->form_validation->set_rules('aktif', 'Aktif', 'required');
+        //$this->form_validation->set_rules('profile', 'Profile', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/akun_user', $data);
+        } else {
+            if ($_POST['id_akun'] != '') {
+                $this->M_akun->save_update_akun($_POST);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil diubah.</div>');
+            } else {
+                // print_r($_FILES);die;
+                $this->M_akun->save_akun($_POST);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil ditambahakan.</div>');
+            }
+            redirect('admin/akun_user');
+        }
+    }
     public function delete_akun($id_akun)
     {
+        if ($id_akun == md5($this->session->userdata('id_akun'))) {
+            $this->session->set_flashdata('message', 'Anda tidak bisa menghapus akun anda sendiri');
+            return redirect('admin/akun');
+        }
         $where = array('md5(id_akun)' => $id_akun);
         $this->M_akun->delete_akun($where, 'data_akun');
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun berhasil dihapus.</div>');

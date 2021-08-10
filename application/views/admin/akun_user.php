@@ -45,12 +45,10 @@
                 <?= form_error('role_id', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
                 <?= form_error('aktif', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
                 <?= form_error('profile', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-
                 <?php if ($this->session->flashdata('message')) { ?>
                     <div class="alert alert-danger" role="alert"><?= $this->session->flashdata('message'); ?></div>
                     <?= $this->session->unset_userdata('message'); ?>
                 <?php } ?>
-
                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                     <thead>
                         <tr>

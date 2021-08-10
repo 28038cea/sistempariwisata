@@ -97,7 +97,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="<?= site_url('admin/module'); ?>">
+                        <a href="<?= site_url('admin'); ?>">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -113,7 +113,7 @@
                                 <a href="<?= site_url('admin/akun'); ?>">Tabel Admin</a>
                             </li>
                             <li>
-                                <a href="<?= site_url('admin/role'); ?>">Tabel User</a>
+                                <a href="<?= site_url('admin/akun_user'); ?>">Tabel User</a>
                             </li>
                         </ul>
                     </li>

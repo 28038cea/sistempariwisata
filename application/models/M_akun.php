@@ -8,6 +8,18 @@ class M_akun extends CI_Model
         $data = $this->db->get('data_akun')->result_array();
         return $data;
     }
+    function get_data_akun_admin()
+    {
+        $this->db->where('role_id', 1);
+        $data = $this->db->get('data_akun')->result_array();
+        return $data;
+    }
+    function get_data_akun_user()
+    {
+        $this->db->where('role_id', 2);
+        $data = $this->db->get('data_akun')->result_array();
+        return $data;
+    }
     function save_akun($post)
     {
         $config = array(

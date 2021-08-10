@@ -36,7 +36,10 @@
                         </div>
                         <div class="card-body">
                             <?= form_error('role', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                            <?= $this->session->flashdata('message'); ?>
+                            <?php if ($this->session->flashdata('message')) { ?>
+                                <div class="alert alert-danger" role="alert"><?= $this->session->flashdata('message'); ?></div>
+                                <?= $this->session->unset_userdata('message'); ?>
+                            <?php } ?>
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
