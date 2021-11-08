@@ -30,4 +30,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/tests/
 /tests/results/
 
-/media/images/gambar_lokasi/*
+media/images/gambar_lokasi/*
