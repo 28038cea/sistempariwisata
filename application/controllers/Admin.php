@@ -15,7 +15,8 @@ class Admin extends CI_Controller
     {
         $data['title'] = "Beranda";
         $data['akun'] = $this->M_akun->get_total_akun();
-        $this->load->view('admin/module', $data);
+        $data['module'] = 'module';
+        $this->load->view('admin/master-layout', $data);
     }
     function profile()
     {
@@ -24,7 +25,8 @@ class Admin extends CI_Controller
         $this->db->where('id_akun', $this->session->userdata('id_akun'));
         $data['akun'] = $this->db->get('data_akun')->row_array();
         $data['profile'] = $this->M_akun->get_profile();
-        $this->load->view('admin/page_profile', $data);
+        $data['module'] = 'page_profile';
+        $this->load->view('admin/master-layout', $data);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +44,8 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('aktif', 'Aktif', 'required');
         //$this->form_validation->set_rules('profile', 'Profile', 'required');
         if ($this->form_validation->run() == false) {
-            $this->load->view('admin/akun', $data);
+            $data['module'] = 'akun';
+            $this->load->view('admin/master-layout', $data);
         } else {
             if ($_POST['id_akun'] != '') {
                 $this->M_akun->save_update_akun($_POST);
@@ -68,7 +71,8 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('aktif', 'Aktif', 'required');
         //$this->form_validation->set_rules('profile', 'Profile', 'required');
         if ($this->form_validation->run() == false) {
-            $this->load->view('admin/akun_user', $data);
+            $data['module'] = 'akun_user';
+            $this->load->view('admin/master-layout', $data);
         } else {
             if ($_POST['id_akun'] != '') {
                 $this->M_akun->save_update_akun($_POST);
@@ -102,7 +106,8 @@ class Admin extends CI_Controller
 
         $this->form_validation->set_rules('role', 'Role', 'required');
         if ($this->form_validation->run() == false) {
-            $this->load->view('admin/role', $data);
+            $data['module'] = 'role';
+            $this->load->view('admin/master-layout', $data);
         } else {
             if ($_POST['id_role'] != '') {
                 $this->M_akun->save_update_role($_POST);
@@ -128,7 +133,8 @@ class Admin extends CI_Controller
         $data['bab'] = "Lokasi";
         $data['sub'] = "Tabel Data Lokasi";
         $data['lokasi'] = $this->M_lokasi->get_data_lokasi();
-        $this->load->view('admin/lokasi', $data);
+        $data['module'] = 'lokasi';
+        $this->load->view('admin/master-layout', $data);
     }
 
     public function detail_lokasi($id = 0)
@@ -138,7 +144,8 @@ class Admin extends CI_Controller
         $data['sub'] = "Detail Lokasi";
         $data['lokasi'] = $this->M_lokasi->get_data_lokasibyid($id);
         $data['gambar'] = $this->M_gambar->get_gambar_lokasi($id);
-        $this->load->view('admin/detail_lokasi', $data);
+        $data['module'] = 'detail_lokasi';
+        $this->load->view('admin/master-layout', $data);
     }
 
     public function edit_lokasi($id = 0)
@@ -146,7 +153,8 @@ class Admin extends CI_Controller
         $data['title'] = 'Edit Lokasi';
         $data['bab'] = "Edit Lokasi";
         $data['lokasi'] = $this->M_lokasi->get_data_lokasibyid($id);
-        $this->load->view('admin/edit_lokasi', $data);
+        $data['module'] = 'edit_lokasi';
+        $this->load->view('admin/master-layout', $data);
     }
 
     public function update_lokasi($id = 0)

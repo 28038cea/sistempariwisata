@@ -1,5 +1,3 @@
-<?php $this->load->view('admin/master-layout') ?>
-
 <section class="content">
     <h2>Edit Detail</h2>
     <form autocomplete="off" role="form" action="<?php echo base_url('admin/update_lokasi/' . $lokasi['id_lokasi']) ?>" method="post">

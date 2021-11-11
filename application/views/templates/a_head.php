@@ -30,6 +30,9 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?= base_url('adminbsb/') ?>css/themes/all-themes.css" rel="stylesheet" />
 
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+
     <!-- Jquery Core Js -->
     <script src="<?= base_url('adminbsb/') ?>plugins/jquery/jquery.min.js"></script>
 
@@ -63,4 +66,7 @@
     <!-- Demo Js -->
     <script src="<?= base_url('adminbsb/') ?>js/demo.js"></script>
     <script src="<?= base_url('adminbsb/tinymce/tinymce.js') ?>"></script>
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
