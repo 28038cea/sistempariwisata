@@ -251,6 +251,8 @@
         </aside>
         <!-- #END# Right Sidebar -->
     </section>
+
+    <?php Include $module . '.php' ?>
 </body>
 
 </html>

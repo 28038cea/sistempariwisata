@@ -1,5 +1,3 @@
-<?php $this->load->view('admin/master-layout') ?>
-
 <section class="content">
     <div class="breadcrumbs">
         <div class="col-sm-4">
